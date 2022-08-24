@@ -1,0 +1,11 @@
+- hosts: "ubuntu"
+  name: "install zsh and oh-my-zsh"
+  vars_files:
+    - ../vars/secrets
+  roles:
+    - role: gantsign.oh-my-zsh
+      oh_my_zsh_theme: agnoster
+      oh_my_zsh_plugins:
+        - git
+      users:
+        - username: "{{ remote_user }}"

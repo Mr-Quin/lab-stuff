@@ -1,0 +1,11 @@
+- hosts: "ubuntu"
+  name: "install vim and configure"
+  become: true
+  vars_files:
+    - ../vars/secrets
+  tasks:
+    - name: install vim
+      apt:
+        name: "vim"
+    - name: Copy over vimrc
+      template: src=../templates/.vimrc dest=/home/{{ remote_user }}/.vimrc mode=0644

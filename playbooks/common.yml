@@ -1,0 +1,12 @@
+- hosts: "ubuntu"
+  become: true
+  vars_files:
+    - ../vars/secrets
+  tasks:
+    - name: apt upgrade
+      apt:
+        update_cache: yes
+        upgrade: yes
+        cache_valid_time: 3600
+        purge: yes
+        state: latest
